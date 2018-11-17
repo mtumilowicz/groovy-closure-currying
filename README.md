@@ -6,8 +6,6 @@ _Reference_: https://en.wikipedia.org/wiki/Currying
 _Reference_: https://en.wikipedia.org/wiki/Partial_application
 _Reference_: https://en.wikipedia.org/wiki/Arity  
 
-https://github.com/mtumilowicz/groovy-transform-method-to-closure
-
 # preface
 
 ## currying
@@ -105,3 +103,13 @@ programming because of the different scoping rules that Groovy
 applies on closures. Currying in Groovy will let you set the 
 value of one parameter of a closure, and it will return a new 
 closure accepting one less argument.
+
+It is quite useful with `.&` operator: 
+https://github.com/mtumilowicz/groovy-transform-method-to-closure
+
+We have 3 approaches to currying in groovy:
+* **Left currying** - setting the left-most parameter of a closure
+* **Right currying** - setting the right-most parameter of a closure
+* **Index based currying** - In case a closure accepts more than 
+2 parameters, it is possible to set an arbitrary parameter using `ncurry`
+
