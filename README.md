@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/groovy-closure-currying.svg?branch=master)](https://travis-ci.com/mtumilowicz/groovy-closure-currying)
+
 # groovy-closure-currying
 Overview of groovy closure currying.
 
