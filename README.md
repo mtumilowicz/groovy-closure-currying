@@ -21,6 +21,25 @@ and produces as outputs functions from Y to Z. **Currying is related
 to, but not the same as, partial application.**
 
 ### example
+* add: X x X -> X
+```
+function add(x, y) {
+  return x + y;
+}
+```
+* curried add: X -> (X -> X)
+```
+function curriedAdd(x) {
+  return function (y) {
+    return x + y;
+  }
+}
+```
+and calling:
+```
+add(3, 5);
+curriedAdd(3)(5);
+```
 
 ## partial application
 In computer science, partial application (or partial function application) 
@@ -35,18 +54,16 @@ function add(x, y) {
   return x + y;
 }
 ```
-* curried add: X -> (X -> X)
+* partial add: (X -> X)
 ```
-function curriedAdd(x, y) {
-  return function (y) {
-    return x + y;
-  }
+function partialAdd_5(y) {
+  return add(5, y);
 }
 ```
 and calling:
 ```
-add(3, 5);
-curriedAdd(3)(5);
+add(5, 3);
+partialAdd_5(3);
 ```
 
 ## currying vs partial application
