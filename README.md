@@ -3,7 +3,7 @@ Overview of groovy closure currying.
 
 _Reference_: https://www.jstips.co/en/javascript/curry-vs-partial-application/  
 _Reference_: https://en.wikipedia.org/wiki/Currying  
-_Reference_: https://en.wikipedia.org/wiki/Partial_application
+_Reference_: https://en.wikipedia.org/wiki/Partial_application  
 _Reference_: https://en.wikipedia.org/wiki/Arity  
 
 # preface
@@ -19,13 +19,13 @@ and produces as outputs functions from Y to Z. **Currying is related
 to, but not the same as, partial application.**
 
 ### example
-* add: X x X -> X
+* add: `X x X -> X`
 ```
 function add(x, y) {
   return x + y;
 }
 ```
-* curried add: X -> (X -> X)
+* curried add: `X -> (X -> X)`
 ```
 function curriedAdd(x) {
   return function (y) {
@@ -43,16 +43,16 @@ curriedAdd(3)(5);
 In computer science, partial application (or partial function application) 
 refers to the process of fixing a number of arguments to a function, 
 producing another function of smaller arity (arity of a function or 
-operation is the number of arguments or operands that the function takes.)
+operation is the number of arguments or operands that the function takes).
 
 ### example
-* add: X x X -> X
+* add: `X x X -> X`
 ```
 function add(x, y) {
   return x + y;
 }
 ```
-* partial add: (X -> X)
+* partial add: `(X -> X)`
 ```
 function partialAdd_5(y) {
   return add(5, y);
@@ -66,41 +66,45 @@ partialAdd_5(3);
 
 ## currying vs partial application
 * currying
-Currying takes a function
-
-`f: X x Y -> R`
-
-and turns it into a function
-
-`f': X -> (Y -> R)`
-
-Thus, if the uncurried f is invoked as
-
-`f(3,5)`
-
-then the curried `f’` is invoked as
-
-`f'(3)(5)`
+    Currying takes a function
+    
+    `f: X x Y -> R`
+    
+    and turns it into a function
+    
+    `f': X -> (Y -> R)`
+    
+    Thus, if the uncurried f is invoked as
+    
+    `f(3,5)`
+    
+    then the curried `f’` is invoked as
+    
+    `f'(3)(5)`
 
 * partial application
-
-Partial application takes a function
-
-`f: X x Y -> R`
-
-and a fixed value for the first argument to produce a new function
-
-`f': Y -> R`
-
-`f’` does the same as `f`, but only has to fill in the second 
-parameter which is why its arity is one less than the arity of f.
+    Partial application takes a function
+    
+    `f: X x Y -> R`
+    
+    and a fixed value for the first argument to produce a new function
+    
+    `f': Y -> R`
+    
+    `f’` does the same as `f`, but only has to fill in the second 
+    parameter which is why its arity is one less than the arity of f.
 
 
 # groovy currying
-In Groovy, currying refers to the concept of partial application. 
+**In Groovy, currying refers to the concept of partial application. 
 It does not correspond to the real concept of currying in functional 
 programming because of the different scoping rules that Groovy 
-applies on closures. Currying in Groovy will let you set the 
+applies on closures.** 
+
+Please refer my other github project: 
+https://github.com/mtumilowicz/groovy-closure-owner-delegate-this
+
+Currying in Groovy will let you set the 
 value of one parameter of a closure, and it will return a new 
 closure accepting one less argument.
 
