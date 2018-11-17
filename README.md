@@ -113,3 +113,52 @@ We have 3 approaches to currying in groovy:
 * **Index based currying** - In case a closure accepts more than 
 2 parameters, it is possible to set an arbitrary parameter using `ncurry`
 
+# project description
+We provide tests in `Currying` class:
+* left currying
+    ```
+    given:
+    def divide = { x, y -> x / y }
+    
+    when:
+    def curriedDivide = divide.curry(10)
+    
+    then:
+    curriedDivide(2) == 5    
+    ```
+* right currying
+    ```
+    given:
+    def divide = { x, y -> x / y }
+    
+    when:
+    def curriedDivide = divide.rcurry(10)
+    
+    then:
+    curriedDivide(20) == 2
+    ```
+* index based currying
+    ```
+    given:
+    def concat = { a, b, c, d, e -> String.join(",", a, b, c, d, e) }
+    
+    when:
+    def currierConcat = concat.ncurry(2, "c", "d", "e")
+    
+    then:
+    currierConcat("a", "b") == "a,b,c,d,e"
+    ```
+* currying with method reference
+    ```
+    given:
+    def curriedAdd = Currying.&add.curry(5)
+    
+    expect:
+    curriedAdd(2) == 7
+    ```
+    where:
+    ```
+    static int add(x, y) {
+        return x + y
+    }    
+    ```
