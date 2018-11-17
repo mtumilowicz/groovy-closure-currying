@@ -4,7 +4,7 @@ import spock.lang.Specification
 /**
  * Created by mtumilowicz on 2018-11-17.
  */
-class LeftCurrying extends Specification {
+class Currying extends Specification {
 
     def "closure left currying"() {
         given:
@@ -52,7 +52,7 @@ class LeftCurrying extends Specification {
 
     def "currying with method reference"() {
         given:
-        def curriedAdd = LeftCurrying.&add.curry(5)
+        def curriedAdd = Currying.&add.curry(5)
 
         expect:
         curriedAdd(2) == 7
