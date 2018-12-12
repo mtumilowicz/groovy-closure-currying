@@ -22,24 +22,24 @@ to, but not the same as, partial application.**
 
 ### example
 * add: `X x X -> X`
-```
-function add(x, y) {
-  return x + y;
-}
-```
+    ```
+    function add(x, y) {
+      return x + y;
+    }
+    ```
 * curried add: `X -> (X -> X)`
-```
-function curriedAdd(x) {
-  return function (y) {
-    return x + y;
-  }
-}
-```
-and calling:
-```
-add(3, 5);
-curriedAdd(3)(5);
-```
+    ```
+    function curriedAdd(x) {
+      return function (y) {
+        return x + y;
+      }
+    }
+    ```
+* calling:
+    ```
+    add(3, 5);
+    curriedAdd(3)(5);
+    ```
 
 ## partial application
 In computer science, partial application (or partial function application) 
@@ -49,25 +49,26 @@ operation is the number of arguments or operands that the function takes).
 
 ### example
 * add: `X x X -> X`
-```
-function add(x, y) {
-  return x + y;
-}
-```
-* partial add: `(X -> X)`
-```
-function partialAdd_5(y) {
-  return add(5, y);
-}
-```
-and calling:
-```
-add(5, 3);
-partialAdd_5(3);
-```
+    ```
+    function add(x, y) {
+      return x + y;
+    }
+    ```
+* partial add: `X -> X`
+    ```
+    function partialAdd_5(y) {
+      return add(5, y);
+    }
+    ```
+* calling:
+    ```
+    add(5, 3);
+    partialAdd_5(3);
+    ```
 
 ## currying vs partial application
-* currying
+* **currying**
+
     Currying takes a function
     
     `f: X x Y -> R`
@@ -76,7 +77,7 @@ partialAdd_5(3);
     
     `f': X -> (Y -> R)`
     
-    Thus, if the uncurried f is invoked as
+    Thus, if the uncurried `f` is invoked as
     
     `f(3,5)`
     
@@ -84,7 +85,8 @@ partialAdd_5(3);
     
     `f'(3)(5)`
 
-* partial application
+* **partial application**
+
     Partial application takes a function
     
     `f: X x Y -> R`
